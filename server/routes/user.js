@@ -5,7 +5,6 @@ const passport = require('../passport')
 
 router.post('/', (req, res) => {
     console.log('user signup');
-
     const { username, password } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -49,11 +48,10 @@ router.post(
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
-    if (req.user) {
-        res.json({ user: req.user })
-    } else {
-        res.json({ user: null })
-    }
+    User.find()
+    .then((users)=> {
+        res.json(users)
+    }) 
 })
 
 router.post('/logout', (req, res) => {
@@ -64,5 +62,13 @@ router.post('/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
+
+  
+  
+
+
+
+
+
 
 module.exports = router

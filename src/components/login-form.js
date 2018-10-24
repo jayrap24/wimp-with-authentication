@@ -22,9 +22,7 @@ class LoginForm extends Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault()
-        console.log('handleSubmit')
-
+        event.preventDefault();
         axios
             .post('/user/login', {
                 username: this.state.username,

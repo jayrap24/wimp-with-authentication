@@ -1,23 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Jumbotron } from 'react-bootstrap';
+
+import Video from './Video'
+
+import { fetchPosts } from '../actions/actionCreators';
+import { fetchComments } from '../actions/actionCreators'
+import { connect } from 'react-redux';
+
 
 class Home extends Component {
-    constructor() {
-        super()
-    }
-
-
-    render() {
-        const imageStyle = {
-            width: 400
-        }
-        return (
-            <div>
-                <p>It's good to be home</p>
-                <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
+    componentDidMount() {
+        this.props.dispatch(fetchPosts())
+        this.props.dispatch(fetchComments())
+      };
+    
+    render(){
+        const loggedIn = this.props.loggedIn;
+        
+        return(
+            <div className="mainpage-container">
+                          {loggedIn ? (
+                             <div className="mainpage-container">
+                             <Jumbotron className="jumbotron-container">
+                                 <h1>Welcome WIMP</h1><h3>{this.props.username}</h3>
+                                     <Video />
+                             </Jumbotron>
+                                <hr/>
+                         </div>
+                            
+                        ) : (
+                            null
+                            )}                       
             </div>
         )
-
     }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+    //console.log(state)
+    return{
+        posts: state.posts.posts || [],
+        comments: state.comments.comments || []
+     } 
+}
+
+export default connect(mapStateToProps)(Home);;
