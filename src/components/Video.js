@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
+import  { Link } from 'react-router-dom';
 
-import { fetchPosts } from '../actions/actionCreators';
-import { fetchComments } from '../actions/actionCreators'
-import { connect } from 'react-redux';
+import './styles/Video.css'
 
 class Video extends Component {
-    componentDidMount() {
-        this.props.dispatch(fetchPosts())
-        this.props.dispatch(fetchComments())
-      };
     render(){
-        console.log(this.props)
+       
         return(
-        <div className="wrapper">
-            <p>little video</p>
-        </div>
+            <div className="mainpage-container">
+                <div className="grid-thumbnails">   
+                    <Link className="links"to={`/view/${this.props.video.code}`} onClick={this.forceUpdate}>  
+                        <img className="thumbnails" src={this.props.video.thumbnail_src} width="200" height="150" alt="" />
+                            <div className="caption-title">
+                                <span> {this.props.video.caption} </span>
+                            </div> 
+                    </Link>                
+                </div> 
+        
+            </div>
         )
     }
 }
 
-const mapStateToProps = (state) => { 
-    return{
-        posts: state.posts.posts || [],
-        comments: state.comments.comments || []
-     } 
-}
-
-export default connect(mapStateToProps)(Video);
+export default Video

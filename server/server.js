@@ -4,11 +4,9 @@ const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
-const passport = require('./passport');
 const app = express()
 const cors = require('cors');
 // Route requires
-const user = require('./routes/user')
 const api = require('./api/router')
 
 
@@ -23,25 +21,9 @@ app.use(
 )
 app.use(bodyParser.json())
 
-/*
-// Sessions
-app.use(
-	session({
-		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false, //required
-		saveUninitialized: false //required
-	})
-)
-*/
-
-// Passport
-app.use(passport.initialize())
-app.use(passport.session()) // calls the deserializeUser
 
 
 // Routes
-app.use('/user', user);
 app.use('/api', api);
 
 

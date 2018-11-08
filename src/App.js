@@ -1,93 +1,78 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Route, Redirect, } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
+import { fetchPosts } from './actions/actionCreators';
+import { fetchComments } from './actions/actionCreators'
+import { connect } from 'react-redux';
 
-// components
-import Signup from './components/sign-up'
-import LoginForm from './components/login-form'
-import NavigationBar from './components/NavigationBar'
+//components
 import Home from './components/Home'
+import Single from './components/Single';
+import Landing from './components/Landing';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import AddDeleteVideo from './components/AddDeleteVideo'
+
+//styles
+import './components/styles/App.css'
 
 
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: false,
-      username: null
-    }
 
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
-  }
 
-  componentDidMount() {
-    this.getUser()
-  }
-
-  updateUser (userObject) {
-    this.setState(userObject)
-  }
-
-  getUser() {
-    axios.get('/user/').then(response => {
-      //console.log('Get user response: ')
-      //console.log(response.data)
-      if (response.data.user) {
-        //console.log('Get User: There is a user saved in the server session: ')
-        this.setState({
-          loggedIn: true,
-          username: response.data.user.username
-        })
-      } else {
-       // console.log('Get user: no user');
-        this.setState({
-          loggedIn: false,
-          username: null
-        })
-      }
-    })
-  }
 
   
 
+  componentDidMount() {
+    this.props.dispatch(fetchPosts())
+    this.props.dispatch(fetchComments())
+  }
+
+  
+  
   render() {
-    const loggedIn = this.state.loggedIn;
+
+
+   let videosExists = false;
+   if(this.props.videos.length > 0){
+       videosExists = true;
+       //console.log(this.props)
+   } 
     return (
       <div className="App">
-
-        <NavigationBar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-
-
-            {loggedIn ? (<Home username={this.state.username} loggedIn={this.state.loggedIn} />) : (
-                          <div>
-                             
-                            
-                            <Route exact path="/" >
-                              <Redirect to="/login" />
-                            </Route>
-
-                            <Route path="/login" render={() =>
-                              <LoginForm updateUser={this.updateUser}/>
-                            }/>
-                            
-                            <Route path="/signup" render={() =>
-                              <Signup/>
-                              
-                            }/>
-                            
-                              
-                         </div>
-              )}
-    
+              <Route path="/landing" render={() =>
+                    <Landing />
+                }/>  
+               <Route path="/login" render={() =>
+                    <Login/>
+                }/> 
+                 <Route path="/signup" render={() =>
+                    <Signup/>
+                }/> 
+                 <Route path="/admin" render={() =>
+                    <AddDeleteVideo/>
+                }/> 
+              <Route path="/home" render={() =>
+                    <Home/>
+                }/> 
+                <Route exact path="/view/:postId" render={(props) =>
+                    <Single {...props} code={this.props} /> 
+                }/>      
       </div>
-
 
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  //console.log(state)
+  return{
+      videos: state.videos.videos || [],
+      comments: state.comments.comments || []
+   } 
+}
+
+export default connect(mapStateToProps, null, null, {
+  pure: false
+})(App);;

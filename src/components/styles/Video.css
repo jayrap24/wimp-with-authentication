@@ -1,0 +1,12 @@
+.thumbnails{
+    height: 140px;
+    border-radius: 10px;
+}
+
+.caption-title span{
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 14px;
+
+}

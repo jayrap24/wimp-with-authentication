@@ -1,0 +1,21 @@
+
+.videoPlayer{
+    margin:auto;
+}
+iframe{
+    height: 300px;
+    width:500px;
+    padding: 10px;
+    margin: auto;
+    display: block;
+}
+
+.caption{
+    font-size: 40px;
+    padding: 10px;
+    color: white;
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+

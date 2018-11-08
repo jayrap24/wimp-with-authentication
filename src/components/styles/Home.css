@@ -1,0 +1,73 @@
+
+
+.mainpage-container{
+    margin-top:-41px;
+    height: 300px;
+}
+.container{
+    background: rgb(39, 39, 39);
+}
+
+#video-grid-container{
+    padding: 10px;
+
+}
+
+#homeJumbotron{
+    background-image: url(https://s122939.gridserver.com/clients/conversant/images/bike.jpg);
+    background-color: #5e5e5e;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat:none;
+    background-position:top;
+    display: table;
+    width: 100%;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif; letter-spacing:6px;
+    margin-top:40px;
+}
+
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+.list{
+    list-style: none;
+    flex: 25%;
+}
+
+.topPicks{
+    padding: 30px;
+    color: #575656;
+  
+}
+
+.topPicks h2{
+    font-weight: 600;
+}
+
+#welcome-statement{
+    font-size: 40px;
+    padding: 40px;
+    font-weight: 300;
+}
+
+#welcome-statement span{
+    font-weight: 300;
+}
+
+
+.seeWhatsTrending h2{
+    color: rgb(236, 236, 236);
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
