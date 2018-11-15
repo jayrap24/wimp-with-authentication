@@ -6,7 +6,8 @@ import { routerReducer } from 'react-router-redux';
 
 import videos from './videos';
 import comments from './comments'
+import authReducer from './auth';
 
-const rootReducer = combineReducers({videos, comments, routing: routerReducer});
+const rootReducer = combineReducers({videos, comments, routing: routerReducer, auth: authReducer});
 
 export default rootReducer;

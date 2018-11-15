@@ -8,7 +8,10 @@ const app = express()
 const cors = require('cors');
 // Route requires
 const api = require('./api/router')
+const passport = require('passport');
 
+const {router: usersRouter} = require('./users');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
 
 app.use(cors());
 
@@ -21,13 +24,15 @@ app.use(
 )
 app.use(bodyParser.json())
 
-
-
 // Routes
 app.use('/api', api);
 
 
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
 
 
 mongoose.Promise = global.Promise;
