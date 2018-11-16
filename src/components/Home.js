@@ -35,7 +35,7 @@ class Home extends Component {
             <div className="mainpage-container">
                                     <Jumbotron className="jumbotron-container" id="homeJumbotron">
                                         <div id="welcome-statement">
-                                        <span>Hello Wimp.</span>
+                                        <span>Welcome to wimp  </span>
                                         </div>
                                     </Jumbotron>
                                 <div className="container" id="video-grid-container">

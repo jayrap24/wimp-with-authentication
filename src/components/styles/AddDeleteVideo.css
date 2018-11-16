@@ -1,0 +1,73 @@
+.addVideoDeleteDiv{
+    padding:20px;
+}
+
+.addVideoDeleteDiv .code input{
+    background: rgb(53, 53, 53);
+    border: none;
+}
+
+.addVideoDeleteDiv .caption input{
+    background: rgb(53, 53, 53);
+    border: none;
+}
+
+.addVideoDeleteDiv form{
+    padding: 20px;
+}
+
+.codeAdmin, .captionAdmin, .submitButtonAdmin {
+    padding: 6px;
+}
+
+.codeAdmin p, .captionAdmin p{
+    color: white;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+.codeAdmin input, .captionAdmin input{
+    background: rgb(68, 68, 68);
+    color: white;
+    border: none;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    padding: 2px;
+
+}
+
+.submitButtonAdmin input{
+    color: rgb(248, 248, 248);
+    background: rgb(27, 27, 27);
+    border: none;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+
+.videos-container{
+    background: rgb(58, 57, 57);
+    list-style: none;
+    padding: 10px;
+    margin:10px;
+    min-width: 300px;
+    max-width:300px;
+}
+
+.codeList {
+    padding: 10px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+}
+
+
+.captionList {
+    padding: 10px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    text-transform: capitalize;
+    font-size: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, Footer } from "mdbreact";
+import { Footer } from "mdbreact";
+import { Link } from 'react-router-dom'
 
 import './styles/FooterPage.css';
 
@@ -13,7 +14,9 @@ class FooterPage extends Component {
           <ul className="footerLi">
             <li>WIMP</li>
             <li>About</li>
-            <li>Terms</li>
+            <Link to="/landing">
+            <li>Admin</li>
+            </Link>
           </ul>
         </div>
 
