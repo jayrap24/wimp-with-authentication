@@ -11,7 +11,7 @@ I wanted to recreate wimp.com which is website that uploads daily videos. I adde
 
 ## Built With
 
-Mongo, Express, ReactJS, Node.js, Javascript. 
+MongoDB, Express, ReactJS, Node.js, Redux. 
 
 ## Author
 
