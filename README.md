@@ -1,4 +1,4 @@
-## WIMP project 
+## WIMP 
 
 Website URL: https://pure-mesa-33759.herokuapp.com/
 
