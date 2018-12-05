@@ -2,16 +2,15 @@
 
 Website URL: https://pure-mesa-33759.herokuapp.com/
 
-Below you will find some information regarding the project
 
 # About
 A site similar to WIMP.com 
 
-I wanted to recreate wimp.com which is website that uploads daily videos. I added an authentication for admin users who can add or delete videos.
+•	Wimp is an app that was designed to mimic the website Wimp.com. This app provides daily videos to the users to watch and add comments on the videos itself. In addition, Admin users are able to  upload videos by signing up and logging in the app. 
 
 ## Built With
 
-MongoDB, Express, ReactJS, Node.js, Redux. 
+MongoDB, Express, ReactJS, Node.js, Redux, JWT Authentication, React Router. 
 
 ## Author
 
